@@ -1,5 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
-import { NextResponse } from "next/server";
+ import { Resend } from "resend";
+ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
@@ -13,15 +13,17 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check for Supabase configuration
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const normalizedEmail = email.toLowerCase().trim();
 
-    if (!supabaseUrl || !supabaseKey) {
-      console.error("Supabase configuration missing");
+    // Check for Resend configuration
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendAudienceId = process.env.RESEND_AUDIENCE_ID;
+
+    if (!resendApiKey || !resendAudienceId) {
+      console.error("Resend configuration missing");
       // In development, still return success for testing
       if (process.env.NODE_ENV === "development") {
-        console.log("Development mode: Simulating waitlist signup for", email);
+        console.log("Development mode: Simulating waitlist signup for", normalizedEmail);
         return NextResponse.json({
           success: true,
           message: "Successfully joined the waitlist! (dev mode)",
@@ -33,23 +35,43 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create Supabase client
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
-    // Insert email into waitlist_signups table
-    const { error } = await supabase
-      .from("waitlist_signups")
-      .insert([{ email: email.toLowerCase().trim() }]);
+    const resend = new Resend(resendApiKey);
+    const { data, error } = await resend.contacts.create({
+      audienceId: resendAudienceId,
+      email: normalizedEmail,
+    });
 
     if (error) {
-      // Handle duplicate email
-      if (error.code === "23505") {
+      const message = typeof error.message === "string" ? error.message : "";
+      const statusCode = (error as unknown as { statusCode?: number }).statusCode;
+
+      // Treat already-existing contacts as success (idempotent signup)
+      if (
+        statusCode === 409 ||
+        message.toLowerCase().includes("already")
+      ) {
+        return NextResponse.json({
+          success: true,
+          message: "You're already on the waitlist!",
+        });
+      }
+
+      console.error("Resend error:", error);
+
+      if (process.env.NODE_ENV === "development") {
         return NextResponse.json(
-          { error: "This email is already on the waitlist" },
-          { status: 409 }
+          {
+            error: "Failed to join waitlist. Please try again.",
+            resend: {
+              name: (error as unknown as { name?: string }).name,
+              message,
+              statusCode,
+            },
+          },
+          { status: 500 }
         );
       }
-      console.error("Supabase error:", error);
+
       return NextResponse.json(
         { error: "Failed to join waitlist. Please try again." },
         { status: 500 }
@@ -59,6 +81,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       message: "Successfully joined the waitlist!",
+      id: data?.id,
     });
   } catch (error) {
     console.error("Waitlist API error:", error);
