@@ -1,16 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Download, Loader2, CheckCircle, Smartphone } from "lucide-react";
+import { ArrowRight, Loader2, CheckCircle, Apple, Smartphone } from "lucide-react";
+import type { Locale } from "@/lib/translations";
+import { translations } from "@/lib/translations";
 
 const APP_RELEASED = process.env.NEXT_PUBLIC_APP_RELEASED === "true";
 const APP_STORE_URL = process.env.NEXT_PUBLIC_APP_STORE_URL || "#";
 const PLAY_STORE_URL = process.env.NEXT_PUBLIC_PLAY_STORE_URL || "#";
 
-export default function Hero() {
+interface HeroProps {
+  locale: Locale;
+}
+
+export default function Hero({ locale }: HeroProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const t = translations[locale].hero;
 
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,10 +51,8 @@ export default function Hero() {
     }
   };
 
-  const handleDownload = () => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isIOS = /iphone|ipad|ipod/.test(userAgent);
-    const url = isIOS ? APP_STORE_URL : PLAY_STORE_URL;
+  const handleDownload = (platform: "ios" | "android") => {
+    const url = platform === "ios" ? APP_STORE_URL : PLAY_STORE_URL;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -76,48 +81,50 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-400"></span>
             </span>
-            {APP_RELEASED ? "Now Available" : "Coming Soon"}
+            {APP_RELEASED ? t.badge.available : t.badge.comingSoon}
           </span>
         </div>
 
         {/* Main heading */}
         <h1 className="animate-fade-in-up mb-6 text-center text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          <span className="block">OPR</span>
-          <span className="gradient-text block">Youth App</span>
+          <span className="block">{t.title}</span>
+          <span className="gradient-text block">{t.subtitle}</span>
         </h1>
 
         {/* Tagline */}
         <p className="animate-fade-in-up animation-delay-200 mb-4 max-w-2xl text-center text-xl text-primary-200 sm:text-2xl">
-          Empowering Rodriguan Youth Through Digital Discipline
+          {t.tagline}
         </p>
 
         {/* Description */}
         <p className="animate-fade-in-up animation-delay-400 mb-10 max-w-xl text-center text-gray-400">
-          Your personal digital assistant for academic success. Offline-first, AI-powered, 
-          and fully localized in <span className="font-semibold text-primary-400">Kreol Rodrige</span>.
+          {t.description}
         </p>
 
         {/* CTA Section - Mutually Exclusive */}
         <div className="animate-fade-in-up animation-delay-600 w-full max-w-md">
           {APP_RELEASED ? (
-            /* Download App Button */
+            /* Download App Buttons - Separate iOS and Android */
             <div className="flex flex-col items-center gap-4">
-              <button
-                onClick={handleDownload}
-                className="btn-primary group w-full sm:w-auto"
-              >
-                <Download className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
-                Download App
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </button>
-              <div className="flex items-center gap-4 text-sm text-secondary-400">
-                <span className="flex items-center gap-1">
-                  <Smartphone className="h-4 w-4" />
-                  iOS & Android
-                </span>
-                <span>•</span>
-                <span>Free Download</span>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  onClick={() => handleDownload("ios")}
+                  className="btn-primary group"
+                >
+                  <Apple className="h-5 w-5" />
+                  {t.download.ios}
+                </button>
+                <button
+                  onClick={() => handleDownload("android")}
+                  className="btn-primary group"
+                >
+                  <Smartphone className="h-5 w-5" />
+                  {t.download.android}
+                </button>
               </div>
+              <p className="text-center text-sm text-gray-400">
+                {t.download.free}
+              </p>
             </div>
           ) : (
             /* Join Waitlist Form */
@@ -130,7 +137,7 @@ export default function Hero() {
                     setEmail(e.target.value);
                     if (status === "error") setStatus("idle");
                   }}
-                  placeholder="Enter your email"
+                  placeholder={t.waitlist.placeholder}
                   className="flex-1 rounded-full border border-charcoal-border bg-charcoal-light/50 px-6 py-4 text-white placeholder-gray-500 backdrop-blur-sm transition-all focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/50"
                   disabled={status === "loading" || status === "success"}
                 />
@@ -142,16 +149,16 @@ export default function Hero() {
                   {status === "loading" ? (
                     <>
                       <Loader2 className="h-5 w-5 animate-spin" />
-                      Joining...
+                      {t.waitlist.buttonLoading}
                     </>
                   ) : status === "success" ? (
                     <>
                       <CheckCircle className="h-5 w-5" />
-                      Joined!
+                      {t.waitlist.buttonSuccess}
                     </>
                   ) : (
                     <>
-                      Join Waitlist
+                      {t.waitlist.button}
                       <ArrowRight className="h-5 w-5" />
                     </>
                   )}
@@ -170,7 +177,7 @@ export default function Hero() {
               )}
 
               <p className="text-center text-sm text-gray-500">
-                Be the first to know when we launch. No spam, ever.
+                {t.waitlist.disclaimer}
               </p>
             </form>
           )}

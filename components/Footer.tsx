@@ -1,7 +1,14 @@
 import { Heart } from "lucide-react";
+import type { Locale } from "@/lib/translations";
+import { translations } from "@/lib/translations";
 
-export default function Footer() {
+interface FooterProps {
+  locale: Locale;
+}
+
+export default function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const t = translations[locale].footer;
 
   return (
     <footer className="border-t border-border-light bg-cream-50">
@@ -14,9 +21,9 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-semibold text-text-primary">
-                OPR Youth App
+                {t.appName}
               </p>
-              <p className="text-sm text-text-muted">OPR Youth Initiative</p>
+              <p className="text-sm text-text-muted">{t.initiative}</p>
             </div>
           </div>
 
@@ -26,28 +33,27 @@ export default function Footer() {
               href="#features"
               className="transition-colors hover:text-primary-500"
             >
-              Features
+              {t.features}
             </a>
             <a
               href="mailto:contact@opr.mu"
               className="transition-colors hover:text-primary-500"
             >
-              Contact
+              {t.contact}
             </a>
           </div>
 
           {/* Copyright */}
           <div className="flex items-center gap-1 text-sm text-text-muted">
-            <span>Made with</span>
+            <span>{t.madeWith}</span>
             <Heart className="h-4 w-4 fill-accent-500 text-accent-500" />
-            <span>for Rodrigues</span>
+            <span>{t.forRodrigues}</span>
           </div>
         </div>
 
         <div className="mt-8 border-t border-border-light pt-8 text-center text-sm text-text-muted">
           <p>
-            &copy; {currentYear} Organisation du Peuple Rodriguais. All rights
-            reserved.
+            &copy; {currentYear} {t.copyright}
           </p>
         </div>
       </div>
