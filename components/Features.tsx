@@ -87,6 +87,8 @@ export default function Features({ locale }: FeaturesProps) {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featureDefs.map((feature, index) => {
             const content = t.items[feature.key];
+            const isComingSoon = feature.key === "ai" && (content as any).badge;
+
             return (
             <div
               key={feature.key}
@@ -106,6 +108,11 @@ export default function Features({ locale }: FeaturesProps) {
               </div>
 
               {/* Content */}
+              {isComingSoon && (
+                <span className="mb-2 inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+                  {(content as any).badge}
+                </span>
+              )}
               <h3 className="mb-2 text-xl font-semibold text-text-primary">
                 {content.title}
               </h3>

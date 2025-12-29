@@ -50,6 +50,7 @@ export const translations = {
           title: "AI Study Tools",
           description:
             "Auto-generate flashcards and summaries from your notes using AI.",
+          badge: "Coming soon",
         },
         offline: {
           title: "Offline First",
@@ -138,6 +139,7 @@ export const translations = {
           title: "Outils d'Étude IA",
           description:
             "Générez automatiquement des cartes mémoire et des résumés de vos notes avec l'IA.",
+          badge: "Bientôt disponible",
         },
         offline: {
           title: "Hors Ligne d'Abord",
@@ -226,6 +228,7 @@ export const translations = {
           title: "Zouti Letid IA",
           description:
             "Zenere otomatikman kart memwar ek rezime depi to not avek IA.",
+          badge: "Pou vini biento",
         },
         offline: {
           title: "San Internet Dabor",
