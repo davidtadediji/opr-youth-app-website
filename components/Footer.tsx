@@ -46,8 +46,6 @@ export default function Footer({ locale }: FooterProps) {
           {/* Copyright */}
           <div className="flex items-center gap-1 text-sm text-text-muted">
             <span>{t.madeWith}</span>
-            <Heart className="h-4 w-4 fill-accent-500 text-accent-500" />
-            <span>{t.forRodrigues}</span>
           </div>
         </div>
 

@@ -84,8 +84,7 @@ export const translations = {
       initiative: "OPR Youth Initiative",
       features: "Features",
       contact: "Contact",
-      madeWith: "Made with",
-      forRodrigues: "for Rodrigues",
+      madeWith: "Gift to the youth of Rodrigues from OPR on the Golden Anniversary",
       copyright: "Organisation du Peuple Rodriguais. All rights reserved.",
     },
   },
@@ -173,8 +172,8 @@ export const translations = {
       initiative: "Initiative Jeunesse OPR",
       features: "Fonctionnalités",
       contact: "Contact",
-      madeWith: "Fait avec",
-      forRodrigues: "pour Rodrigues",
+      madeWith:
+        "Cadeau aux jeunes de Rodrigues de la part de l'OPR pour son jubilé d'or",
       copyright:
         "Organisation du Peuple Rodriguais. Tous droits réservés.",
     },
@@ -262,8 +261,8 @@ export const translations = {
       initiative: "Inisiativ Zènes OPR",
       features: "Fonksionalite",
       contact: "Kontak",
-      madeWith: "Fer avek",
-      forRodrigues: "pou Rodrig",
+      madeWith:
+        "En kado pou zenn Rodrig depi OPR pou so 50em laniverser",
       copyright: "Organisation du Peuple Rodriguais. Tou drwa rezerve.",
     },
   },
