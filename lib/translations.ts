@@ -79,6 +79,15 @@ export const translations = {
         },
       },
     },
+    anniversary: {
+      badge: "50th Anniversary",
+      title: "Celebrating 50 Years",
+      subtitle: "1976 - 2026",
+      description:
+        "Organisation du Peuple Rodriguais celebrates 50 years of commitment, action, and progress for Rodrigues and its people.",
+      motto: "LANGAZMAN - LALIT - AKSION",
+      slogan: "POU PROGRE RODRIG EK SO PEP",
+    },
     footer: {
       appName: "OPR Youth App",
       initiative: "OPR Youth Initiative",
@@ -166,6 +175,15 @@ export const translations = {
             "Se synchronise avec les fonctionnalités d'administration pour les mises à jour et annonces scolaires.",
         },
       },
+    },
+    anniversary: {
+      badge: "50e Anniversaire",
+      title: "Célébrons 50 Ans",
+      subtitle: "1976 - 2026",
+      description:
+        "L'Organisation du Peuple Rodriguais célèbre 50 ans d'engagement, d'action et de progrès pour Rodrigues et son peuple.",
+      motto: "LANGAZMAN - LALIT - AKSION",
+      slogan: "POU PROGRE RODRIG EK SO PEP",
     },
     footer: {
       appName: "OPR Youth App",
@@ -255,6 +273,15 @@ export const translations = {
             "Sinkroniz avek fonksionalite admin pou miz-a-zour ek anons lekol.",
         },
       },
+    },
+    anniversary: {
+      badge: "50em Laniverser",
+      title: "Nou Selebre 50 An",
+      subtitle: "1976 - 2026",
+      description:
+        "Organisation du Peuple Rodriguais selebre 50 an langazman, lalit ek aksion pou Rodrig ek so pep.",
+      motto: "LANGAZMAN - LALIT - AKSION",
+      slogan: "POU PROGRE RODRIG EK SO PEP",
     },
     footer: {
       appName: "OPR Youth App",

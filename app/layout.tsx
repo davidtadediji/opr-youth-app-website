@@ -21,11 +21,16 @@ export const metadata: Metadata = {
     "Organisation du Peuple Rodriguais",
   ],
   authors: [{ name: "Organisation du Peuple Rodriguais" }],
+  icons: {
+    icon: "/opr-logo.jpg",
+    apple: "/opr-logo.jpg",
+  },
   openGraph: {
     title: "OPR Youth App | Empowering Rodriguan Youth",
     description:
       "Empowering Rodriguan Youth Through Digital Discipline. Your personal digital assistant for academic success.",
     type: "website",
+    images: ["/opr-logo.jpg"],
   },
 };
 

@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import Image from "next/image";
 import type { Locale } from "@/lib/translations";
 import { translations } from "@/lib/translations";
 
@@ -16,9 +16,13 @@ export default function Footer({ locale }: FooterProps) {
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           {/* Logo / Brand */}
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 font-bold text-charcoal">
-              OPR
-            </div>
+            <Image
+              src="/opr-logo.jpg"
+              alt="OPR Logo"
+              width={60}
+              height={60}
+              className="rounded-lg"
+            />
             <div>
               <p className="font-semibold text-text-primary">
                 {t.appName}
@@ -36,7 +40,7 @@ export default function Footer({ locale }: FooterProps) {
               {t.features}
             </a>
             <a
-              href="mailto:contact@opr.mu"
+              href="mailto:contact@jakobs.studio"
               className="transition-colors hover:text-primary-500"
             >
               {t.contact}
