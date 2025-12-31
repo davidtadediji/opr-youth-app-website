@@ -71,7 +71,7 @@ export default function Header({ locale, onLocaleChange }: HeaderProps) {
               isScrolled ? "hover:text-primary-600" : "hover:text-primary-300"
             }`}
           >
-            {t.nav.features}
+            Features
           </a>
           <a
             href="#anniversary"
@@ -79,7 +79,7 @@ export default function Header({ locale, onLocaleChange }: HeaderProps) {
               isScrolled ? "hover:text-primary-600" : "hover:text-primary-300"
             }`}
           >
-            {t.nav.anniversary}
+            Golden Anniversary
           </a>
           <a
             href="mailto:contact@jakobs.studio"
@@ -87,7 +87,7 @@ export default function Header({ locale, onLocaleChange }: HeaderProps) {
               isScrolled ? "hover:text-primary-600" : "hover:text-primary-300"
             }`}
           >
-            {t.nav.contact}
+            Contact
           </a>
         </nav>
 
@@ -122,21 +122,21 @@ export default function Header({ locale, onLocaleChange }: HeaderProps) {
                 className="rounded-xl px-3 py-2 transition-colors hover:bg-cream-100 hover:text-text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.nav.features}
+                Features
               </a>
               <a
                 href="#anniversary"
                 className="rounded-xl px-3 py-2 transition-colors hover:bg-cream-100 hover:text-text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.nav.anniversary}
+                Golden Anniversary
               </a>
               <a
                 href="mailto:contact@jakobs.studio"
                 className="rounded-xl px-3 py-2 transition-colors hover:bg-cream-100 hover:text-text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.nav.contact}
+                Contact
               </a>
             </div>
           </div>
