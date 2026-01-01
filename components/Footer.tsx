@@ -45,6 +45,18 @@ export default function Footer({ locale }: FooterProps) {
             >
               {t.contact}
             </a>
+            <a
+              href="/terms"
+              className="transition-colors hover:text-primary-500"
+            >
+              Terms
+            </a>
+            <a
+              href="/privacy-policy"
+              className="transition-colors hover:text-primary-500"
+            >
+              Privacy Policy
+            </a>
           </div>
 
           {/* Copyright */}
