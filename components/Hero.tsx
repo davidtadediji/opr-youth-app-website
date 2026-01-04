@@ -107,13 +107,13 @@ export default function Hero({ locale }: HeroProps) {
             /* Download App Buttons - Separate iOS and Android */
             <div className="flex flex-col items-center gap-4">
               <div className="flex flex-col gap-3 sm:flex-row">
-                <button
+                {/* <button
                   onClick={() => handleDownload("ios")}
                   className="btn-primary group"
                 >
                   <Apple className="h-5 w-5" />
                   {t.download.ios}
-                </button>
+                </button> */}
                 <button
                   onClick={() => handleDownload("android")}
                   className="btn-primary group"
