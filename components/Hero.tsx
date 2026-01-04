@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Loader2, CheckCircle, Apple, Smartphone } from "lucide-react";
+import { ArrowRight, Loader2, CheckCircle, Apple, Smartphone, Clock } from "lucide-react";
 import type { Locale } from "@/lib/translations";
 import { translations } from "@/lib/translations";
 
@@ -114,6 +114,13 @@ export default function Hero({ locale }: HeroProps) {
                   <Apple className="h-5 w-5" />
                   {t.download.ios}
                 </button> */}
+                <div className="flex items-center gap-2 rounded-lg bg-white/5 px-4 py-2 backdrop-blur-sm">
+                  <Clock className="h-4 w-4 text-primary-400" />
+                  <p className="text-sm font-medium text-primary-300">
+                    {t.download.iosSoon}
+                  </p>
+                </div>
+
                 <button
                   onClick={() => handleDownload("android")}
                   className="btn-primary group"

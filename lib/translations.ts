@@ -21,6 +21,7 @@ export const translations = {
       },
       download: {
         ios: "Download for iOS",
+        iosSoon: "iOS version coming soon",
         android: "Download for Android",
         free: "Free Download",
       },
@@ -118,6 +119,7 @@ export const translations = {
       },
       download: {
         ios: "Télécharger pour iOS",
+        iosSoon: "Version iOS bientôt disponible",
         android: "Télécharger pour Android",
         free: "Téléchargement Gratuit",
       },
@@ -216,6 +218,7 @@ export const translations = {
       },
       download: {
         ios: "Telecharge pou iOS",
+        iosSoon: "Verzion iOS pe vini biento",
         android: "Telecharge pou Android",
         free: "Telecharsman Gratis",
       },
