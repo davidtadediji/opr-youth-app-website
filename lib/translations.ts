@@ -85,7 +85,7 @@ export const translations = {
       title: "Celebrating 50 Years",
       subtitle: "1976 - 2026",
       description:
-        "Organisation du Peuple Rodriguais celebrates 50 years of commitment, action, and progress for Rodrigues and its people.",
+        "Organisation du Peuple de Rodrigues celebrates 50 years of commitment, action, and progress for Rodrigues and its people.",
       motto: "LANGAZMAN - LALIT - AKSION",
       slogan: "POU PROGRE RODRIG EK SO PEP",
     },
@@ -95,7 +95,7 @@ export const translations = {
       features: "Features",
       contact: "Contact",
       madeWith: "Gift to the youth of Rodrigues from OPR on the Golden Anniversary",
-      copyright: "Organisation du Peuple Rodriguais. All rights reserved.",
+      copyright: "Organisation du Peuple de Rodrigues. All rights reserved.",
     },
   },
   fr: {
@@ -183,7 +183,7 @@ export const translations = {
       title: "Célébrons 50 Ans",
       subtitle: "1976 - 2026",
       description:
-        "L'Organisation du Peuple Rodriguais célèbre 50 ans d'engagement, d'action et de progrès pour Rodrigues et son peuple.",
+        "L'Organisation du Peuple de Rodrigues célèbre 50 ans d'engagement, d'action et de progrès pour Rodrigues et son peuple.",
       motto: "LANGAZMAN - LALIT - AKSION",
       slogan: "POU PROGRE RODRIG EK SO PEP",
     },
@@ -195,7 +195,7 @@ export const translations = {
       madeWith:
         "Cadeau aux jeunes de Rodrigues de la part de l'OPR pour son jubilé d'or",
       copyright:
-        "Organisation du Peuple Rodriguais. Tous droits réservés.",
+        "Organisation du Peuple de Rodrigues. Tous droits réservés.",
     },
   },
   rcr: {
@@ -282,7 +282,7 @@ export const translations = {
       title: "Nou Selebre 50 An",
       subtitle: "1976 - 2026",
       description:
-        "Organisation du Peuple Rodriguais selebre 50 an langazman, lalit ek aksion pou Rodrig ek so pep.",
+        "Organisation du Peuple de Rodrigues selebre 50 an langazman, lalit ek aksion pou Rodrig ek so pep.",
       motto: "LANGAZMAN - LALIT - AKSION",
       slogan: "POU PROGRE RODRIG EK SO PEP",
     },
@@ -293,7 +293,7 @@ export const translations = {
       contact: "Kontak",
       madeWith:
         "En kado pou zenn Rodrig depi OPR pou so 50em laniverser",
-      copyright: "Organisation du Peuple Rodriguais. Tou drwa rezerve.",
+      copyright: "Organisation du Peuple de Rodrigues. Tou drwa rezerve.",
     },
   },
 };

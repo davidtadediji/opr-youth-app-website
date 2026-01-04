@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     "student planner",
     "study app",
     "Kreol Rodrige",
-    "Organisation du Peuple Rodriguais",
+    "Organisation du Peuple de Rodrigues",
   ],
-  authors: [{ name: "Organisation du Peuple Rodriguais" }],
+  authors: [{ name: "Organisation du Peuple de Rodrigues" }],
   icons: {
     icon: "/opr-logo.jpg",
     apple: "/opr-logo.jpg",
